@@ -30,4 +30,10 @@ void setup() {
  SerialBT.register_callback(callback);
  SerialBT.setTimeout(0);
 }
-void loop() {}
+String value = "";
+void loop() {
+  if (SerialBT.available()) {
+    value = SerialBT.readString();
+    Serial.println(value);
+  }
+}
